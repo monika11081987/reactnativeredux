@@ -1,17 +1,9 @@
-import { StyleSheet,View,ScrollView,
-    // AppRegistry
- } from 'react-native';
-// import React from 'react';
-// import Header from './components/Header';
-// import Product from './components/Product';
-// import{name as appName} from './app.json';
-// import {Provider} from 'react-redux';
-// import store from './redux/store';
-
+import React from "react";
+import { StyleSheet,View,ScrollView,Button} from 'react-native';
 import Header from "./Header";
 import Product from "./Product";
 
-const Home = () => {
+const ProductWrapper = ({navigation}) => {
 
   const products=[
     {
@@ -39,6 +31,7 @@ const Home = () => {
   return (
     // <Provider store={store}>
     <View style={styles.container}>
+        <Button title="Go to user list" onPress={()=>navigation.navigate("User")}/> 
     <Header/>
     <ScrollView>
     {products.map((item)=><Product item={item}/>)
@@ -57,4 +50,4 @@ const styles = StyleSheet.create({
         flex:1
     },
 });
-export default Home;
+export default ProductWrapper;

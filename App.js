@@ -1,18 +1,21 @@
-import React from "react";
-// import { View } from "react-native";
-import { AppRegistry } from "react-native";
-// import App from "./App";
-import {name as appName} from './app.json';
-import {Provider} from 'react-redux';
-import store from './redux/store';
-import Home from "./components/Home";
+import React from 'react';
+// import { StyleSheet,View} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import ProductWrapper from './components/ProductWrapper';
+import UserList from './components/UserList';
 
-const App=()=>{
-    return 
-    <Provider store={store}>
-<Home/>;
-    </Provider>
-}
+const Stack=createNativeStackNavigator();
+const App = () => {
+
+  return (
+    <NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen name='Home' component={ProductWrapper}/>
+      <Stack.Screen name='User' component={UserList}/>
+    </Stack.Navigator>
+     </NavigationContainer>
+      );
+};
 
 export default App;
-AppRegistry.registerComponent(appName,()=>App);
